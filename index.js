@@ -6,9 +6,10 @@
  * @license  MIT
  */
 
-const request = require('request'),
-      env     = require('dotenv').config()
+const request = require('request')
 
+require('dotenv').config()
+require('dash-button')
 
 function sendToSlack (s, theUsername, theIconUrl, theIconEmoji, theChannel) {
     let payload = {
@@ -31,9 +32,8 @@ function sendToSlack (s, theUsername, theIconUrl, theIconEmoji, theChannel) {
         method: 'POST',
         json:   payload
     }
-    request(theRequest, function (error, response, body) {
-        if ( !error && (response.statusCode == 200
-        ) ) {
+    request(theRequest, function (error, response) {
+        if ( !error && (response.statusCode === 200) ) {
             console.log('sendToSlack: ' + s)
         }
         else {
@@ -42,4 +42,10 @@ function sendToSlack (s, theUsername, theIconUrl, theIconEmoji, theChannel) {
     })
 }
 
-sendToSlack('Hello World', 'The Boss', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE7HiJ7383bsYyHmdU2l-MGS6sKaGE88InU63jIvFBp95A4nhX', null, 'ci')
+
+let button = new DashButton(process.env.DASH_BUTTON_DEPLOY)
+
+button.addListener(async() => {
+    sendToSlack('... is calling you', 'The Boss', 'http://beardstyle.net/wp-content/uploads/2016/06/hipster-mustaches-11.jpg', null, 'ci')
+})
+
