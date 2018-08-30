@@ -4,7 +4,8 @@
   "description": "Deploy your software by push a button",
   "main": "slack.js",
   "scripts": {
-    "start": "node slack.js",
+    "start": "node index.js",
+    "scan": "dash-button scan",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
