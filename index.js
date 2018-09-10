@@ -65,9 +65,8 @@ button.addListener(async () => {
   request(jokeRequest, function(error, response) {
     if (!error && (response.statusCode === 200)) {
       let joke = JSON.parse(response.body).value.joke;
-      sendToSlack(joke, 'Chuck Norris', 'https://f1.blick.ch/img/incoming/origs7200249/430014937-w980-h653/News-Norris-B150.jpg', null, '@ala')
+      sendToSlack(joke, 'Chuck Norris', 'https://pm1.narvii.com/6037/494011a5f5cbdc6fe7f515a3b8f2c464c6c5f5e5_128.jpg', null, '@ala')
       sendMqtt('vergissberlin/feeds/dash', joke)
-
     } else {
       return false;
       console.log('joke: error, code == ' + response.statusCode + ', ' + response.body + '.\n')
