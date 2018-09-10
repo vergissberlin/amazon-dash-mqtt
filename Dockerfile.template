@@ -1,37 +1,16 @@
-# base-image for node on any machine using a template variable,
-# see more about dockerfile templates here: http://docs.resin.io/deployment/docker-templates/
-# and about resin base images here: http://docs.resin.io/runtime/resin-base-images/
-# Note the node:slim image doesn't have node-gyp
 FROM resin/%%RESIN_MACHINE_NAME%%-node:8
 
-# use apt-get if you need to install dependencies,
-# for instance if you need ALSA sound utils, just uncomment the lines below.
 RUN apt-get update && apt-get install -yq \
-    mc && \
+    mc  sudo libpcap-dev git && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Defines our working directory in container
 WORKDIR /usr/src/app
 
-# Copies the package.json first for better cache on later pushes
-COPY package.json package.json
-
-# This will copy all files in our root to the working  directory in the container
-COPY . ./
-
-
-
-
-
-#Install libpcap-dev
-RUN apt-get update && \
-    apt-get install -y sudo libpcap-dev git
-
 # Install dasher
-RUN cd /root && export GIT_SSL_NO_VERIFY=1 && \
+RUN export GIT_SSL_NO_VERIFY=1 && \
     git config --global http.sslVerify false && \
-    git clone https://github.com/maddox/dasher.git
-
+    git clone https://github.com/maddox/dasher.git .
 
 # Enable systemd init system in container
 ENV INITSYSTEM on
