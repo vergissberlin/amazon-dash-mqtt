@@ -23,6 +23,7 @@
     "dash-button": "^3.2.0",
     "dotenv": "^6.0.0",
     "dotenv-parse-variables": "^0.2.0",
+    "mqtt": "^2.18.8",
     "request": "^2.88.0"
   }
 }
