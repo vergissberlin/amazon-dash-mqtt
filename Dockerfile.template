@@ -12,8 +12,12 @@ RUN export GIT_SSL_NO_VERIFY=1 && \
     git config --global http.sslVerify false && \
     git clone https://github.com/maddox/dasher.git .
 
+RUN npm install
+ADD config.json config.json
+
 # Enable systemd init system in container
 ENV INITSYSTEM on
 
-# server.js will run when container starts up on the device
-CMD ["npm", "start"]
+VOLUME /usr/src/app
+
+CMD cd /root/dasher && cp -n config.json /root/dasher/config/config.json && npm run start
