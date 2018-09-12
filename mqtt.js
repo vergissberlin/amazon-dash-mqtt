@@ -9,7 +9,7 @@
 const mqtt = require('mqtt')
 var client  = mqtt.connect(
 {
-        host: 'io.adafruit.com',
+        host: 'mqtt://io.adafruit.com',
         port: 1883,
         username: 'vergissberlin',
         password: 'ad755b7b9d994e4abe62bc0ace181023'
@@ -19,7 +19,7 @@ var client  = mqtt.connect(
 client.on('connect', function () {
   client.subscribe('vergissberlin/feeds/dash', function (err) {
     if (!err) {
-      client.publish('vergissberlin/feeds/dash', 'Hello mqtt')
+      client.publish('vergissberlin/feeds/dash', '50000')
     }
   })
 })
