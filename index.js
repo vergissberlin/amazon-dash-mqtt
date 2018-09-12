@@ -54,9 +54,10 @@ function sendMqtt(feed, message) {
   client.end()
 }
 
-let button = new DashButton(process.env.DASH_BUTTON_DEPLOY)
+let buttonBlugento = new DashButton(process.env.BUTTON_BLUGENTO)
+let buttonChuckNorris = new DashButton(process.env.BUTTON_CHUCK_NORRIS)
 
-button.addListener(async () => {
+buttonChuckNorris.addListener(async () => {
   let jokeRequest = {
     url: 'http://api.icndb.com/jokes/random',
     method: 'GET'
@@ -66,10 +67,14 @@ button.addListener(async () => {
     if (!error && (response.statusCode === 200)) {
       let joke = JSON.parse(response.body).value.joke;
       sendToSlack(joke, 'Chuck Norris', 'https://pm1.narvii.com/6037/494011a5f5cbdc6fe7f515a3b8f2c464c6c5f5e5_128.jpg', null, '@ala')
-      sendMqtt('vergissberlin/feeds/dash', joke)
     } else {
       return false;
       console.log('joke: error, code == ' + response.statusCode + ', ' + response.body + '.\n')
     }
   })
+})
+
+
+buttonBlugento.addListener(async () => {
+    sendToSlack('New release is out!', 'Blugento', 'https://s3.amazonaws.com/f6s-public/profiles/1384760_original.jpg', null, '@ala')
 })
