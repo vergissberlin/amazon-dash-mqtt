@@ -54,8 +54,11 @@ function sendMqtt(feed, message) {
   client.end()
 }
 
-let buttonBlugento = new DashButton(process.env.BUTTON_BLUGENTO)
-let buttonChuckNorris = new DashButton(process.env.BUTTON_CHUCK_NORRIS)
+let networkConfiguration = {
+	"networkInterface": process.env.NETWORK_INTERFACE
+}
+let buttonBlugento = new DashButton(process.env.BUTTON_BLUGENTO, networkConfiguration)
+let buttonChuckNorris = new DashButton(process.env.BUTTON_CHUCK_NORRIS, networkConfiguration)
 
 buttonChuckNorris.addListener(async () => {
   let jokeRequest = {
