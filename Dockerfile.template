@@ -1,21 +1,16 @@
-FROM resin/%%RESIN_MACHINE_NAME%%-node:8
+FROM resin/%%RESIN_MACHINE_NAME%%-python:3
 
 RUN apt-get update && apt-get install -yq \
-    mc sudo libpcap-dev git && \
+    mc sudo libpcap-dev git vim && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Defines our working directory in container
 WORKDIR /usr/src/app
 
-# Install dasher
 RUN export GIT_SSL_NO_VERIFY=1 && \
-    git config --global http.sslVerify false && \
-    git clone https://github.com/maddox/dasher.git .
+    git config --global http.sslVerify false
 
-RUN npm install
-ADD config.json config.json
+ADD app/ /usr/src/app/
 
-# Enable systemd init system in container
 ENV INITSYSTEM on
 
 VOLUME /usr/src/app

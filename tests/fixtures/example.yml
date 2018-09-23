@@ -1,0 +1,21 @@
+settings:
+  MQTT_BROKER: io.adafruit.com
+  MQTT_USERNAME: vergissberlin
+  MQTT_TOKEN: ad755b7b9d994e4abe62bc0ace181023
+  NETWORK_INTERFACE: en1    
+
+mqtt: 
+    group-1:
+        - button-1:
+            id: "dash-example-1"
+            title: "Hello example 1"
+        - button-2:
+            id: "dash-example 2"
+            title: "Hello example 2"
+    group-2:
+        - button-3:
+            id: "dash-example 3"
+            title: "Hello example 3"
+        - button-4:
+            id: "dash-example 4"
+            title: "Hello example 4"
