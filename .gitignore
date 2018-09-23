@@ -1,7 +1,7 @@
 /*
 __pycache__
-!/app/dash-button-listener.py
-!/app/config.dist.yml
+!/app
+/app/config.yml
 !/Dockerfile.template
 !/LICENSE
 !/README.md

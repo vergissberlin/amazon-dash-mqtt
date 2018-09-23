@@ -1,0 +1,18 @@
+settings:
+  MQTT_BROKER: io.adafruit.com
+  MQTT_USERNAME: 
+  MQTT_TOKEN: 
+  NETWORK_INTERFACE: en1    
+
+mqtt: 
+    group-1:
+        - 00:00:00:00:00:00:
+            id: "dash-example"
+            payload: "Hello example"
+        - 00:00:00:00:00:00:
+            id: "dash-example"
+            payload: "Hello example"
+    group-2:
+        - 00:00:00:00:00:00:
+            id: "dash-example"
+            payload: "Hello example"
