@@ -2,7 +2,8 @@
 __pycache__
 !/app
 /app/config.yml
-!/Dockerfile.template
+!/.travis.yml
 !/LICENSE
 !/README.md
 !/tests
+!/requirements*
