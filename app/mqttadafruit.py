@@ -16,7 +16,10 @@ class MQTTAdafruit:
             log.critical('Please setup buttons in the config.yml!')
             raise ValueError('Please setup the MQTT settings in the config.yml!')
         else:
-            print(settings['MQTT_BROKER'])
+            if not settings['MQTT_USERNAME']:
+                log.critical('Please setup the MQTT broker username in the config.yml!')
+            if not settings['MQTT_TOKEN']:
+                log.critical('Please setup the MQTT broker token in the config.yml!')
 
             # Create an MQTT client instance.
             self.__client = MQTTClient(settings['MQTT_USERNAME'], settings['MQTT_TOKEN'])
