@@ -13,7 +13,7 @@ cd amazon-dash-mqtt
 **2. Configure**
 - Copy the dist file ``cp app/config.dist.yml app/config.yml``
 - Add your MQTT credentials in the *app/config.yml*.
-- Add the buttons an the feed where to publish the MQTT message in the *app/config.yml*.
+- Add the buttons, the payload and the feed where to publish the MQTT message in the *app/config.yml*.
 
 ```yml
 settings:
