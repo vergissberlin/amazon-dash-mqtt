@@ -13,3 +13,6 @@ python:
 install:
   - pip install -r requirements.txt
   - pip install -U -r requirements.user.txt
+  - pip install pylint
+script:
+  - pylint -f colorized app/*.py
