@@ -1,19 +1,23 @@
-# deploy-button
-Deploy your software by push a button
+# Amazon Dash Button MQTT
 
-## Docker
+Send a MQTT message when someone click on your configured dash buttons in the network.
+
+## Installation
+
+**1. Grab the code**
 ```bash
-docker run -d --name dasher --net=host -v $(pwd)/config.json:/root/dasher/config clemenstyp/dasher-docker
+git clone git@github.com:vergissberlin/amazon-dash-mqtt.git
+cd amazon-dash-mqtt
+cp app/config.dist.yml app/config.yml
+vim app/config.yml
 ```
 
-## resin.io
+**2. Configure**
+Enter 
+- your MQTT credentials in the *app/config.yml*.
+- The buttons an the feed where to publish the MQTT message in the *app/config.yml*.
 
-To get this project up and running, you will need to signup for a resin.io account here and set up a device, have a look at our Getting Started tutorial. Once you are set up with resin.io, you will need to clone this repo locally:
-
-$ git clone git@github.com:vergissberlin/deploy-button.git
-Then add your resin.io application's remote repository to your local repository:
-
-$ git remote add resin git remote add resin gh_vergissberlin@git.resin.io:gh_vergissberlin/amazondash.git
-
-and push the code to the newly added remote:
-$ git push resin master
+**3. Start the application**
+```bash
+sudo phyton3 app/main.py
+```
