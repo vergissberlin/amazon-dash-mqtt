@@ -1,25 +1,33 @@
 #!/usr/bin/env python
 
-from yaml import load, dump
-import yaml
+from scapy.all import sniff
+import logging
+
+# Create logger
+log = logging.getLogger('amazon-dash-mqtt.amazondash')
 
 class AmazonDash:
 
-    configurationFile = 'app/config.yml'
-
     # Constructor
-    def __init__(self, configurationFile=None):
-        if configurationFile is not None:
-            self.configurationFile = configurationFile
-        # Load configuration
-        self.data=self.getConfiguration()
-        self.settings=self.data['settings']
-        self.buttons=self.data['buttons']
+    def __init__(self, buttons=None, mqtt=None):
+        if buttons is None:
+            log.error('Please setup buttons in the config.yml!')
+            raise ValueError('Please setup buttons in the config.yml!')
+        if mqtt is None:
+            raise ValueError('Please setup mqtt client!')
+
+    @staticmethod
+    def arp_detect(pkt):
+        if pkt['ARP'].hwsrc == "6c:56:97:da:b8:41":
+            # client.publish('dash.blugento', 1)
+            log.info('Button is detected')
+            return "Blugento button detected!"
+
 
     # Set listener and send MQQT
-    def setListener(self):
+    def setListener(self, buttons):
         # Loop throug all MQTT groups
-        for groupKey, group in self.buttons.items():
+        for groupKey, group in buttons.items():
             print(groupKey)
             # Loop through all MQTT buttons
             for buttons in group:
@@ -30,15 +38,4 @@ class AmazonDash:
                         'Data id: ', buttons[buttonKey]['id'], 
                         'Data title: ', buttons[buttonKey]['title'])
 
-    # Get the configuration from a given YAML file
-    def getConfiguration(self):
-        with open(self.configurationFile, 'r') as stream:
-            try:
-                data = yaml.load(stream)
-            except yaml.YAMLError as exc:
-                print(exc)
-        return data
-
-# Example calls
-ad = AmazonDash()
-print(ad.moo())
+   
