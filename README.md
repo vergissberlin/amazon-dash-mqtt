@@ -8,14 +8,12 @@ Send a MQTT message when someone click on your configured dash buttons in the ne
 ```bash
 git clone git@github.com:vergissberlin/amazon-dash-mqtt.git
 cd amazon-dash-mqtt
-cp app/config.dist.yml app/config.yml
-vim app/config.yml
 ```
 
 **2. Configure**
-Enter 
-- your MQTT credentials in the *app/config.yml*.
-- The buttons an the feed where to publish the MQTT message in the *app/config.yml*.
+- Copy the dist file ``cp app/config.dist.yml app/config.yml``
+- Add your MQTT credentials in the *app/config.yml*.
+- Add the buttons an the feed where to publish the MQTT message in the *app/config.yml*.
 
 ```yml
 settings:
