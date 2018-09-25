@@ -1,6 +1,8 @@
 # Amazon Dash Button MQTT
+[![Build Status](https://travis-ci.org/vergissberlin/amazon-dash-mqtt.svg?branch=master)](https://travis-ci.org/vergissberlin/amazon-dash-mqtt)
 
-Send a MQTT message when someone click on your configured dash buttons in the network.
+> Send a MQTT message when someone click on your configured dash buttons in the network.
+
 
 ## Installation
 
