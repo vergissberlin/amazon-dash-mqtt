@@ -8,8 +8,8 @@
     "devices": [
         {
             "mac": "38:f7:3d:b4:53:08",
-            "feed": "TheDevMinerTV/feeds/new-image",
-            "message": "New Dash"
+            "feed": "TheDevMinerTV/feeds/dashbuttons",
+            "message": "New dash"
         }
     ]
 }
