@@ -50,7 +50,7 @@ npm install
 ```
 
     NOTE: If you're using Adafruit IO, then use
-          "mqtt://" as "broker, and in feed use "<USERNAME>/feeds/<FEED>".
+          "mqtt://io.adafruit.com" as "broker", and in "feed" use "<USERNAME>/feeds/<FEED>".
 
 ### 3. Start the application
 
