@@ -1,0 +1,15 @@
+{
+    "settings": {
+        "broker": "mqtt://io.adafruit.com", 
+        "username": "TheDevMinerTV",
+        "token": "afbe51b6c2af74c3a59e344ad5c846bb"
+    },
+    
+    "devices": [
+        {
+            "mac": "38:f7:3d:b4:53:08",
+            "feed": "TheDevMinerTV/feeds/new-image",
+            "message": "New dash"
+        }
+    ]
+}

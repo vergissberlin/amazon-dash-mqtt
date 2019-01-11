@@ -1,46 +1,59 @@
 # Amazon Dash Button MQTT
+
 [![Build Status](https://travis-ci.org/vergissberlin/amazon-dash-mqtt.svg?branch=master)](https://travis-ci.org/vergissberlin/amazon-dash-mqtt)
 
-> Send a MQTT message when someone click on your configured dash buttons in the network.
-
+> Send a MQTT message when someone presses your configured dash buttons.
 
 ## Installation
 
-**1. Grab the code**
+### Dependencies
+
+- libpcap
+
 ```bash
-git clone git@github.com:vergissberlin/amazon-dash-mqtt.git
+sudo apt install libpcap
+```
+
+- NodeJS (>= 8.0.0)
+
+### 1. Get the code
+
+```bash
+git clone https://github.com/vergissberlin/amazon-dash-mqtt.git
 cd amazon-dash-mqtt
+npm install
 ```
 
-**2. Configure**
-- Copy the dist file ``cp app/config.dist.yml app/config.yml``
-- Add your MQTT credentials in the *app/config.yml*.
-- Add the buttons, the payload and the feed where to publish the MQTT message in the *app/config.yml*.
+### 2. Configure
 
-```yml
-settings:
-  MQTT_BROKER: io.adafruit.com
-  MQTT_USERNAME: YOUR_USERNAME
-  MQTT_TOKEN: YOUR_TOKEN
-  NETWORK_INTERFACE: en1    
+- Copy the dist file ```cp config.dist.json config.json```
+- Add your MQTT credentials in the *config.json*.
+- Add the buttons, the message and the feed where to publish the MQTT message in the *config.json*.
+- If you're using a broker without need for a token just leave it empty
 
-mqtt: 
-    group-1:
-        - 00:00:00:00:00:00:
-            id: "dash-example"
-            payload: "Hello example"
-        - 00:00:00:00:00:00:
-            id: "dash-example"
-            payload: "Hello example"
-    group-2:
-        - 00:00:00:00:00:00:
-            id: "dash-example"
-            payload: "Hello example"
+```json
+{
+    "settings": {
+        "broker": "mqtt://<YOUR_BROKER>",
+        "username": "<YOUR_USERNAME>",
+        "token": "<YOUR_TOKEN>"
+    },
 
+    "devices": [
+        {
+            "mac": "<MAC_ADRESS>",
+            "feed": "<FEED>",
+            "message": "<MESSAGE>"
+        }
+    ]
+}
 ```
 
+    NOTE: If you're using Adafruit IO, then use
+          "mqtt://" as "broker, and in feed use "<USERNAME>/feeds/<FEED>".
 
-**3. Start the application**
+### 3. Start the application
+
 ```bash
-sudo phyton3 app/main.py
+sudo nano app.js
 ```

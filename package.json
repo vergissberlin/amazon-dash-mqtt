@@ -1,0 +1,29 @@
+{
+  "name": "node-amazon-dash-button",
+  "version": "1.0.0",
+  "description": "A javascript application for sending MQTT messages with a dashbutton",
+  "main": "app.js",
+  "dependencies": {
+    "mqtt": "^2.18.8",
+    "node-dash-button": "^0.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vergissberlin/amazon-dash-mqtt.git"
+  },
+  "keywords": [
+    "mqtt",
+    "dash",
+    "amazon"
+  ],
+  "author": "TheDevMinerTV",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vergissberlin/amazon-dash-mqtt/issues"
+  },
+  "homepage": "https://github.com/vergissberlin/amazon-dash-mqtt#readme"
+}

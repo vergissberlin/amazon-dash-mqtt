@@ -1,9 +1,2 @@
-/*
-__pycache__
-!/app
-/app/config.yml
-!/.travis.yml
-!/LICENSE
-!/README.md
-!/tests
-!/requirements*
+config.yml
+node_modules/
