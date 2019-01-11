@@ -3,13 +3,9 @@
   "version": "1.0.0",
   "description": "A javascript application for sending MQTT messages with a dashbutton",
   "main": "app.js",
-  "dependencies": {
-    "mqtt": "^2.18.8",
-    "node-dash-button": "^0.6.1"
-  },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "./node_modules/.bin/eslint . ./*.js",
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -25,5 +21,12 @@
   "bugs": {
     "url": "https://github.com/vergissberlin/amazon-dash-mqtt/issues"
   },
-  "homepage": "https://github.com/vergissberlin/amazon-dash-mqtt#readme"
+  "homepage": "https://github.com/vergissberlin/amazon-dash-mqtt#readme",
+  "dependencies": {
+    "mqtt": "^2.18.8",
+    "node-dash-button": "^0.6.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0"
+  }
 }
