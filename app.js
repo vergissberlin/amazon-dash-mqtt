@@ -31,7 +31,7 @@ client.on('connect', function () {
 	configuration.devices.forEach(i => {
 		let dash = dash_button(i.mac, null, null, 'all')
 		dash.on('detected', function () {
-			console.log('Dash button "' + i.message + '" detected!')
+			console.log('listener | Dash button "' + i.message + '" detected!')
 			client.publish(i.feed, i.message)
 		})
 	})
