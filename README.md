@@ -9,11 +9,9 @@
 ### Dependencies
 
 - libpcap
-
 ```bash
 sudo apt install libpcap
 ```
-
 - NodeJS (>= 8.0.0)
 
 ### 1. Get the code
