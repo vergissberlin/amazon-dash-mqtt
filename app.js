@@ -27,11 +27,11 @@ if (configuration.settings.token === '') {
  * Connect to MQTT
  */
 client.on('connect', function () {
-	console.log("MQTT     | Connected!");
+	console.log('MQTT     | Connected!')
 	configuration.devices.forEach(i => {
 		let dash = dash_button(i.mac, null, null, 'all')
 		dash.on('detected', function () {
-			console.log('listener | Dash button "' + i.message + '" detected!')
+			console.log(`listener | Dash button "${i.message}" detected!`)
 			client.publish(i.feed, i.message)
 		})
 	})
