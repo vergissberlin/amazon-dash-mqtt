@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/vergissberlin/amazon-dash-mqtt#readme",
   "dependencies": {
-    "mqtt": "^2.18.8",
+    "mqtt": "^4.0.0",
     "node-dash-button": "^0.6.1"
   },
   "devDependencies": {
