@@ -1,6 +1,6 @@
 # Amazon Dash Button MQTT
 
-[![Build Status](https://travis-ci.org/vergissberlin/amazon-dash-mqtt.svg?branch=master)](https://travis-ci.org/vergissberlin/amazon-dash-mqtt)
+[![Build Status](https://travis-ci.org/vergissberlin/amazon-dash-mqtt.svg?branch=master)](https://travis-ci.org/vergissberlin/amazon-dash-mqtt) [![Greenkeeper badge](https://badges.greenkeeper.io/vergissberlin/amazon-dash-mqtt.svg)](https://greenkeeper.io/)
 
 > Send a MQTT message when someone presses your configured dash buttons.
 
